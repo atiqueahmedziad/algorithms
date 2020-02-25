@@ -59,13 +59,11 @@ namespace SJF
                         itemCount++;
                     }
                 }
-
                 if (temp.Count != 0)
                 {
                     temp = temp.OrderBy(process => process.cpuTime).ToList();
                     sortedProcess.AddRange(temp);
                 }
-
                 if (temp.Count == processes.Count - 1)
                 {
                     break;
@@ -144,7 +142,6 @@ namespace SJF
             for (int i = 0; i < processes.Count; i++)
             {
                 Console.WriteLine($"Process {processes[i].processId}: arrival time: {processes[i].waitTime}  cpu Time: {processes[i].turnAroundTime}");
-
             }
 
             Console.WriteLine($"Average waiting time: {avgWT}");
