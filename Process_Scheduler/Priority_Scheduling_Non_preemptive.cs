@@ -117,7 +117,11 @@ namespace PS
 
             double sumCpuTime = 0;
 
+            // wait time of 1st process is 0
+            processes[0].waitTime = 0;
+
             // set wait time of each process
+            // Starting from 2nd process since we have already assigned wait time of first process to 0
             for (int i = 1; i < processes.Count; i++)
             {
                 sumCpuTime += processes[i - 1].cpuTime;
