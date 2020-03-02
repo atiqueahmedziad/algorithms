@@ -63,7 +63,6 @@ namespace PS
                 if (temp.Count != 0 & itemCount != itemInQueue)
                 {
                     temp = temp.OrderBy(process => process.priority).ToList();
-                    //sortedProcess.AddRange(temp);
                     sortedProcess.Add(temp[0]);
                     itemCount = itemCount - temp.Count + 1;
                 }
