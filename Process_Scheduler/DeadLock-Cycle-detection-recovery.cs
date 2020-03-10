@@ -58,7 +58,7 @@ namespace DeadLock {
             if(filterNodeList().Count != 0) {
                 // DFSInitilize() method is calling with remaining unvisited nodes
                 // filterNodeList() method returning the list of unvisited nodes
-                DFSInitilize(filterNodeList());
+                DFSInitialize(filterNodeList());
             }
         }
 
@@ -90,7 +90,7 @@ namespace DeadLock {
                 addEdge(edge.First(), edge.Last());
             }
 
-            DFSInitilize(nodeList);
+            DFSInitialize(nodeList);
 
             foreach(var dLock in deadLockList) {
                 Console.WriteLine($"DeadLock cycle is: {dLock}");
