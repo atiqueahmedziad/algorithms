@@ -17,10 +17,8 @@ namespace DeadLock {
     class MainClass {
         // nodeList contains all the input nodes
         public static List<Node> nodeList = new List<Node>();
-
         // deadLockList contains all the deadlock cycles (each deadlock cycle as an item in the list)
         public static List<string> deadLockList = new List<string>();
-
         // It contains the nodes of deadlock cycle
         public static string deadLocks;
 
@@ -46,13 +44,11 @@ namespace DeadLock {
             // Determining the adjacent nodes of given Node.
             foreach(var adjNode in node.adjNode) {
                 Node newNode = findNodeWithChar(adjNode);
-
                 // If deadlocks string already contains the adjacent node name
                 // it is a deadLock.
                 if (deadLocks.Contains(newNode.name)) {
                     int index = deadLocks.IndexOf(newNode.name);
                     string deadLockCycle = deadLocks.Substring(index);
-
                     deadLockList.Add(deadLockCycle);
                 }
                 else if(newNode!= null && !newNode.visited) {
