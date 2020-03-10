@@ -47,7 +47,7 @@ namespace DeadLock {
             foreach(var adjNode in node.adjNode) {
                 Node newNode = findNodeWithChar(adjNode);
 
-                // If deadlocks string alread contains the adjacent node name
+                // If deadlocks string already contains the adjacent node name
                 // it is a deadLock.
                 if (deadLocks.Contains(newNode.name)) {
                     int index = deadLocks.IndexOf(newNode.name);
@@ -68,7 +68,7 @@ namespace DeadLock {
 
         public static void DFSInitilize(List<Node> nodeList) {
             deadLocks = "";
-            // Initializing DFS with first node with given nodeList
+            // Initializing DFS with first node of given nodeList
             DFS(nodeList[0]);
         }
 
@@ -79,15 +79,15 @@ namespace DeadLock {
             Console.WriteLine("How many edges: ");
             int numOfEdges = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Enter Edges: ");
-            // Example
-            // AB
-            // BC
             foreach(var eachNode in nodeName) {
                 Node node = new Node(eachNode);
                 nodeList.Add(node);
             }
 
+            Console.WriteLine("Enter Edges: ");
+            // Example
+            // AB
+            // BC
             for (int i=0; i<numOfEdges; i++) {
                 string edge = Console.ReadLine();
                 edge.Trim();
@@ -102,9 +102,9 @@ namespace DeadLock {
 
             /*
             --- DeadLock Recovery ---
-            For each deadLock cycle we took the first and last node.
+            From each deadLock cycle we took the first and last node.
             The last node must have first node as its adjacent node.
-            We delete the first node from last node's adjacent list.
+            We delete the first node from last node's adjacent node list.
             */
             foreach(var dLockCycle in deadLockList) {
                 char firstNodeVal = dLockCycle.First();
@@ -118,7 +118,7 @@ namespace DeadLock {
             // since we will be running DFS again to check for deadLock cycle
             deadLockList.Clear();
 
-            Console.WriteLine($"Run DFS after fixing deadlock cycle");
+            Console.WriteLine($"Run DFS after fixing deadlock cycles");
             DFSInitilize(nodeList);
 
             foreach (var dLock in deadLockList) {
