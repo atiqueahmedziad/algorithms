@@ -115,7 +115,7 @@ namespace DeadLock {
             deadLockList.Clear();
 
             Console.WriteLine($"Run DFS after fixing deadlock cycles");
-            DFSInitilize(nodeList);
+            DFSInitialize(nodeList);
 
             foreach (var dLock in deadLockList) {
                 Console.WriteLine($"DEADLOCK IS HERE: {dLock}");
