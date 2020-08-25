@@ -6,7 +6,7 @@ for (let i = 0; i < framesNo; i++) {
   frames.push([]);
 }
 
-const getLargest = (endIndex, elements) => {
+const getSmallest = (endIndex, elements) => {
   const newArr = str.slice(0,endIndex);
   let smallest = newArr.length;
   let element = null;
@@ -51,7 +51,7 @@ str.forEach((num, i) => {
       if (lastValues.includes(num)) {
         hit++;
       } else {
-        const { element } = getLargest(i, lastValues);
+        const { element } = getSmallest(i, lastValues);
         frames[element][i] = num;
         fault++;
       }
