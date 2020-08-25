@@ -32,7 +32,7 @@ const getLargest = (endIndex, elements) => {
   return { element };
 };
 
-let count = 0;
+let fault = 0;
 let hit = 0;
 let lastValues = [];
 str.forEach((num, i) => {
@@ -44,7 +44,7 @@ str.forEach((num, i) => {
     }
     if (frame[i - 1] == undefined) {
       frame[i] = num;
-      count++;
+      fault++;
       break;
     }
     if (lastValues.length === framesNo) {
@@ -53,11 +53,11 @@ str.forEach((num, i) => {
       } else {
         const { element } = getLargest(i, lastValues);
         frames[element][i] = num;
-        count++;
+        fault++;
       }
     }
   }
 });
 
-count;
+fault;
 hit;
