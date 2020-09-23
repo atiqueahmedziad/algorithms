@@ -20,6 +20,7 @@ string createFile(File newFile) {
         cout << "File "+ newFile.fileName +" cannot be created" << "\n";
         return "";
     } else {
+        totalBlock -= newFile.fileSize;
         int init = countFileSize;
         countFileSize += newFile.fileSize;
         for(int i=init; i<countFileSize; i++) {
